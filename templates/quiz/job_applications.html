@@ -1,0 +1,68 @@
+{% extends 'quiz/adminbase.html' %}
+{% block content %}
+{%load static%}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+  </style>
+</head>
+<br><br>
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h6 class="panel-title">Job Applicant Views</h6>
+    </div>
+    <table class="table table-hover" id="dev-table">
+      <thead>
+        <tr>         
+          <th>Applicant Name</th>
+          <th>Job Title</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+                    {% for application in applications %}
+                    <tr>
+
+                        <td> {{ application.applicant.username }}</td>
+                        
+                        <td>{{ application.job.title }}</td>
+                        <td>{{ application.get_status_display }}</td>
+                        <td>
+                                <form method="post" action="{% url 'manage_application' application.id %}">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <select name="status" class="form-control form-control-sm">
+                                            <option value="pending" {% if application.status == 'pending' %}selected{% endif %}>Pending</option>
+                                            <option value="accepted" {% if application.status == 'accepted' %}selected{% endif %}>Accepted</option>
+                                            <option value="rejected" {% if application.status == 'rejected' %}selected{% endif %}>Rejected</option>
+                                        </select>
+                                    </div>
+                                
+
+                                    <button type="submit" class="btn btn-primary btn-sm">Update Status</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                      </table>
+                    </div>
+                  </div>
+                  
+                  <br><br><br><br><br><br>
+                  {% endblock content %}

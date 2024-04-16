@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Let's Quiz</title>
+  <link href="{% static 'css/styles.css' %}" rel="stylesheet"> <!-- Assuming your CSS file is named styles.css and located in the css folder under static -->
+  <style>
+    body {
+      background-image: url('https://static.vecteezy.com/system/resources/previews/011/091/556/non_2x/students-take-online-quizzes-through-the-university-website-knowledge-testing-concepts-fill-out-application-forms-competence-assessments-and-online-learning-free-photo.jpg');
+      background-size: cover;
+      background-position: center;
+     
+    }
+
+    .container {
+      position: relative;
+      z-index: 1; /* Ensure content is on top of the background */
+    }
+
+    .jumbotron {
+      background-color: rgba(255, 255, 255, 0.8); /* Adjust the opacity of the background color */
+      padding: 20px;
+      margin-top: 50px; /* Adjust margin as needed */
+      border-radius: 10px;
+      
+    }
+
+    .jumbotron h1 {
+      color: #dc3545; /* Adjust text color as needed */
+    }
+
+    .jumbotron p {
+      color: #212529; /* Adjust text color as needed */
+    }
+  </style>
+</head>
+
+<body>
+  {% include "quiz/navbar.html" %}
+  <br> <br>
+
+  <div class="container text-center">
+    <br> <br>
+    <div class="jumbotron">
+      <h1 class="display-1"><strong>Let's Quiz</strong></h1>
+      <p class="display-4 d-none d-sm-block"><strong>Test your skills and become a master.</strong></p>
+      <p class="lead">We organize quizzes on various topics.</p>
+      <p class="lead">Sign up if you haven't already and get access to millions of quizzes on the topic of your interest.</p>
+      <p><strong> Start Your Journey Here:</strong></p>
+      <a href="/student/studentsignup" class="btn btn-lg btn-info" style="padding-right: 35px;"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</a>
+    </div>
+    <br> <br> <br>
+  </div>
+
+  {% include "quiz/footer.html" %}
+</body>
+
+</html>

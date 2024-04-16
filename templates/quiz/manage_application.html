@@ -1,0 +1,16 @@
+{% extends 'quiz/adminbase.html' %}
+{% block content %}
+    <h1>Manage Job Application</h1>
+    <p>Applicant: {{ application.applicant.username }}</p>
+    <p>Job Title: {{ application.job.title }}</p>
+    <p>Status: {{ application.get_status_display }}</p>
+    <form method="post" action="{% url 'manage_application' application.id %}">
+        {% csrf_token %}
+        <select name="status">
+            <option value="pending" {% if application.status == 'pending' %}selected{% endif %}>Pending</option>
+            <option value="accepted" {% if application.status == 'accepted' %}selected{% endif %}>Accepted</option>
+            <option value="rejected" {% if application.status == 'rejected' %}selected{% endif %}>Rejected</option>
+        </select>
+        <button type="submit">Update Status</button>
+    </form>
+{% endblock %}

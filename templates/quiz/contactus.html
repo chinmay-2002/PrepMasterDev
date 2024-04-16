@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<style>
+  .jumbotron {
+      margin-top: 0px;
+      margin-bottom: 0px;
+      position: relative;
+      background-image: url("https://static.vecteezy.com/system/resources/previews/011/091/556/non_2x/students-take-online-quizzes-through-the-university-website-knowledge-testing-concepts-fill-out-application-forms-competence-assessments-and-online-learning-free-photo.jpg"); /* Replace 'background.jpg' with the path to your image */
+      background-size: cover;
+      background-position: center;
+      color: white; /* Set text color to white for better contrast */
+      text-shadow: 2px 2px 4px #000000; /* Add text shadow for better readability */
+    }
+</style>
+
+
+
+</head>
+
+<body>
+
+  {% include "quiz/navbar.html" %}
+  <br><br>
+  <div class="jumbotron" style="margin-bottom:0px;">
+
+  <center>
+    <h3 class='alert alert-success'>Send Us Your Valuable Feedback !</h3>
+
+    <form method="POST" autocomplete="off">
+      <!-- Very Important csrf Token -->
+      {% csrf_token %}
+      <div class="form-group">
+        <p>
+        <h3>{{ form.as_p }}</h3>
+        </p>
+        <br>
+        <input type="submit" value="Send Message" class='btn btn-primary btn-lg'>
+      </div>
+    </form>
+  </center>
+</div>
+  {% include "quiz/footer.html" %}
+</body>
+
+</html>

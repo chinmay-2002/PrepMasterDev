@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <style media="screen">
+    .jumbotron {
+      margin-top: 0px;
+      margin-bottom: 0px;
+      position: relative;
+      background-image: url("https://static.vecteezy.com/system/resources/previews/011/091/556/non_2x/students-take-online-quizzes-through-the-university-website-knowledge-testing-concepts-fill-out-application-forms-competence-assessments-and-online-learning-free-photo.jpg"); /* Replace 'background.jpg' with the path to your image */
+      background-size: cover;
+      background-position: center;
+      color: white; /* Set text color to white for better contrast */
+      text-shadow: 2px 2px 4px #000000; /* Add text shadow for better readability */
+    }
+    .jumbotron h1 {
+      text-align: center;
+    }
+
+    .alert {
+      margin: 0px;
+    }
+  </style>
+
+  <title></title>
+</head>
+
+<body>
+
+  {% include "quiz/navbar.html" %}
+  <br><br>
+  <div class="jumbotron" style="margin-bottom: 0px;margin-top: 0px;">
+
+  <center>
+    <h3 class='alert alert-success' style="margin-bottom:0px;">About Us !</h3>
+  </center>
+  <br><br>
+
+    <p class="lead"><strong>We Provide Platform For Students To practice Questions  <br> Teacher can add course/exam to System and Questions to that course.</strong></p>
+    <hr class="my-4">
+    <p><strong>Our Website.</strong></p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="/" role="button">HOME</a>
+    </p>
+  </div>
+
+  {% include "quiz/footer.html" %}
+</body>
+
+</html>
